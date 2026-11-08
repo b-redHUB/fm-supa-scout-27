@@ -1,0 +1,9 @@
+# your save data and local scans: never commit
+history/
+players.json
+# local / editor / tooling
+__pycache__/
+*.pyc
+.vscode/
+.playwright-mcp/
+vtable_cache.json

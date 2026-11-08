@@ -1,0 +1,121 @@
+{
+ "build": "404308480:1794079897",
+ "vtables": {
+  "FULL_CONTRACT": 78654184,
+  "PLAYING_DATA": 78900056,
+  "NATION": 80615000,
+  "CLUB": 80593400,
+  "TEAM": 80621832,
+  "ACTUAL_PLAYER": 80908840,
+  "LOAN_CONTRACT": 81572344,
+  "HUMAN_NON_PLAYER_2": 80488664
+ },
+ "player": {
+  "PD": 328,
+  "TEAM": 304,
+  "NATION": 752,
+  "FIRST": 728,
+  "LAST": 736,
+  "DOB": 784,
+  "HEIGHT": 558,
+  "VALUE": 564,
+  "STAMP": 512,
+  "CONTRACT": 816,
+  "GENDER": 673,
+  "PERSONALITY": 760,
+  "ASKING": 568,
+  "LAST_FEE": 580,
+  "GENDER_BIT": 4
+ },
+ "pd": {
+  "POS": 8,
+  "ATT": 23,
+  "CA": 284,
+  "PA": 286
+ },
+ "contract": {
+  "WAGE": 32,
+  "EXPIRY": 72,
+  "TEAM": 16,
+  "CLAUSES": 104,
+  "RELEASE_TYPE": 0
+ },
+ "team": {
+  "CLUB": 48
+ },
+ "club": {
+  "NAME": 192,
+  "SHORT": 200,
+  "NATION": 216
+ },
+ "nation": {
+  "NAME": 24,
+  "CODE": 40
+ },
+ "slots": {
+  "0": "Cro",
+  "1": "Dri",
+  "2": "Fin",
+  "3": "Hea",
+  "4": "Lon",
+  "5": "Mar",
+  "6": "OtB",
+  "7": "Pas",
+  "8": "Pen",
+  "9": "Tck",
+  "10": "Vis",
+  "11": "Han",
+  "12": "Aer",
+  "13": "Cmd",
+  "14": "Com",
+  "15": "Kic",
+  "16": "Thr",
+  "17": "Ant",
+  "18": "Dec",
+  "19": "1v1",
+  "20": "Pos",
+  "21": "Ref",
+  "22": "Fir",
+  "23": "Tec",
+  "24": "LeftFoot",
+  "25": "RightFoot",
+  "26": "Fla",
+  "27": "Cor",
+  "28": "Tea",
+  "29": "Wor",
+  "30": "LTh",
+  "31": "Ecc",
+  "32": "TRO",
+  "33": "Pun",
+  "34": "Acc",
+  "35": "Fre",
+  "36": "Str",
+  "37": "Sta",
+  "38": "Pac",
+  "39": "Jum",
+  "40": "Ldr",
+  "41": "Dir",
+  "42": "Bal",
+  "43": "Bra",
+  "44": "Cons",
+  "45": "Agg",
+  "46": "Agi",
+  "47": "ImpM",
+  "48": "Inj",
+  "49": "Vers",
+  "50": "Nat",
+  "51": "Det",
+  "52": "Cmp",
+  "53": "Cnt"
+ },
+ "loan": {
+  "PLAYER": 8,
+  "PLAYER_ADJ": 648,
+  "TEAM": 16,
+  "END": 72
+ },
+ "human": {
+  "VT_OFFSET": 1088,
+  "CONTRACT": 1256
+ }
+}
