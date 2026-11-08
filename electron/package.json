@@ -1,0 +1,41 @@
+{
+  "name": "fm-supa-scout-27",
+  "productName": "FM Supa Scout",
+  "version": "1.0.0",
+  "description": "Live scouting tool for Football Manager 27",
+  "author": "b-redHUB",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable"
+  },
+  "build": {
+    "appId": "io.github.bredhub.fmsupascout27",
+    "productName": "FM Supa Scout",
+    "directories": {
+      "output": "../build/app"
+    },
+    "files": [
+      "main.js",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../build/server/fm-supa-scout-server",
+        "to": "server"
+      }
+    ],
+    "win": {
+      "target": "portable",
+      "icon": "icon.png"
+    },
+    "portable": {
+      "artifactName": "FM-Supa-Scout-${version}.exe"
+    }
+  },
+  "devDependencies": {
+    "electron": "^45.2.3",
+    "electron-builder": "^26.18.0"
+  }
+}

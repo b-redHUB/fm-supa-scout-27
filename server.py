@@ -20,9 +20,22 @@ import calibrate
 import fm27
 from mem import Proc
 
-DIR = os.path.dirname(os.path.abspath(__file__))
-HISTORY = os.path.join(DIR, 'history')
-PORT = 8027
+import argparse
+import shutil
+
+# static UI files: next to this script, or inside the PyInstaller bundle when frozen
+DIR = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+_args = argparse.ArgumentParser()
+_args.add_argument('--port', type=int, default=8027)
+_args.add_argument('--data', default=os.path.dirname(os.path.abspath(sys.argv[0])), help='writable folder for layout.json + history')
+_args.add_argument('--no-browser', action='store_true')
+ARGS, _ = _args.parse_known_args()
+PORT = ARGS.port
+os.makedirs(ARGS.data, exist_ok=True)
+HISTORY = os.path.join(ARGS.data, 'history')
+fm27.LAYOUT = os.path.join(ARGS.data, 'layout.json')  # writable: calibration updates it after game patches
+if not os.path.exists(fm27.LAYOUT):
+    shutil.copyfile(os.path.join(DIR, 'layout.json'), fm27.LAYOUT)
 lock = threading.Lock()
 state = {'cache': None, 'log': []}
 
@@ -146,7 +159,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
 if __name__ == '__main__':
     srv = http.server.ThreadingHTTPServer(('127.0.0.1', PORT), functools.partial(Handler, directory=DIR))
-    print(f'FM Supa Scout 27 on http://127.0.0.1:{PORT}  (Ctrl+C to stop)')
-    if '--no-browser' not in sys.argv:
-        webbrowser.open(f'http://127.0.0.1:{PORT}')
+    print(f'FM Supa Scout 27 on http://127.0.0.1:{srv.server_port}  (Ctrl+C to stop)', flush=True)
+    print(f'READY {srv.server_port}', flush=True)  # the Electron shell waits for this line
+    if not ARGS.no_browser:
+        webbrowser.open(f'http://127.0.0.1:{srv.server_port}')
     srv.serve_forever()

@@ -4,9 +4,19 @@ Scouting tool for Football Manager 27. It reads every player straight from the r
 
 ## Run it
 
-Double-click `FM Supa Scout.bat`, or run `python server.py`. This opens http://127.0.0.1:8027. You need Python 3.10+ and numpy.
+**Easiest:** download `FM-Supa-Scout-<version>.exe` from [Releases](../../releases) and double-click it. Nothing to install, and no Python needed. Windows may warn about an unrecognised app because the exe isn't code-signed. Click "More info", then "Run anyway".
 
-Load your save in FM27. The app scans automatically. About 40,000 players take about 5 seconds.
+**From source:** double-click `FM Supa Scout.bat`, or run `python server.py`. This opens http://127.0.0.1:8027 in your browser. You need Python 3.10+ and numpy.
+
+Either way, load your save in FM27. The app scans automatically. About 40,000 players take about 5 seconds.
+
+The app keeps its data (the learned memory layout and scan history) in `%APPDATA%\FM Supa Scout`. When run from source, it keeps it next to the code.
+
+## Build the exe
+
+    .\build.ps1
+
+This needs Python 3.10+ with `numpy` and `pyinstaller`, plus Node 18+. It bundles the scan server with PyInstaller, wraps it in an Electron window, and writes a single portable exe to `build/app/`.
 
 ## What you get
 
@@ -55,4 +65,5 @@ If the scan reports "data looks wrong" right after a game update, use Settings, 
 - `mem.py`: Windows process memory access
 - `rtti.py`: finds C++ class vtables
 - `index.html`, `app.css`, `app.js`, `discover.js`: the user interface
+- `electron/`, `build.ps1`: desktop app shell and build script
 - `scout.js`: role ratings

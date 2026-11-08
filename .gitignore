@@ -7,3 +7,6 @@ __pycache__/
 .vscode/
 .playwright-mcp/
 vtable_cache.json
+# build output
+build/
+electron/node_modules/
