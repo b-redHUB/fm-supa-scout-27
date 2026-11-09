@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "Live scouting tool for Football Manager 27",
   "author": "b-redHUB",
+  "license": "MIT",
   "main": "main.js",
   "private": true,
   "scripts": {
@@ -24,6 +25,14 @@
       {
         "from": "../build/server/fm-supa-scout-server",
         "to": "server"
+      },
+      {
+        "from": "../LICENSE",
+        "to": "LICENSE.txt"
+      },
+      {
+        "from": "../THIRD-PARTY-NOTICES.md",
+        "to": "THIRD-PARTY-NOTICES.md"
       }
     ],
     "win": {

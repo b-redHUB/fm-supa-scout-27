@@ -68,6 +68,12 @@ By hand, from `server/`:
     python selftest_calibrate.py       # corrupts the offsets and checks they are recovered
     python fm27.py players.json && python test_fm27.py   # sanity checks on any save, plus known players
 
+## Licence and disclaimer
+
+MIT licensed: see [LICENSE](LICENSE). Bundled open-source components and their licences are listed in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
+
+FM Supa Scout is an unofficial fan-made tool. It is not affiliated with, endorsed by, or connected to Sports Interactive or SEGA, and "Football Manager" is a trademark of its owners. The repo and the app contain no game files, artwork or game data; player information is only read live from your own copy of the game. Reading game memory may be against the game's licence terms. Use at your own risk.
+
 ## Known gaps
 
 - **Game date:** taken from the latest date FM has stamped on any player, so it can lag the real in-game date by a day or two.
