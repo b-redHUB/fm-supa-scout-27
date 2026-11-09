@@ -18,7 +18,7 @@ function startServer(port) {
   const opts = { windowsHide: true };
   server = app.isPackaged
     ? spawn(path.join(process.resourcesPath, 'server', 'fm-supa-scout-server.exe'), args, opts)
-    : spawn('python', [path.join(__dirname, '..', 'server.py'), ...args], opts);
+    : spawn('python', [path.join(__dirname, '..', 'server', 'server.py'), ...args], opts);
   return new Promise((resolve, reject) => {
     let out = '', err = '';
     const timer = setTimeout(() => reject(new Error('The scan server did not start within 60 seconds.')), 60000);

@@ -23,8 +23,9 @@ from mem import Proc
 import argparse
 import shutil
 
-# static UI files: next to this script, or inside the PyInstaller bundle when frozen
-DIR = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+# this script's folder, or the PyInstaller bundle when frozen; the web UI lives in ui/
+BASE = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+DIR = os.path.join(BASE, 'ui')
 _args = argparse.ArgumentParser()
 _args.add_argument('--port', type=int, default=8027)
 _args.add_argument('--data', default=os.path.dirname(os.path.abspath(sys.argv[0])), help='writable folder for layout.json + history')
@@ -35,7 +36,7 @@ os.makedirs(ARGS.data, exist_ok=True)
 HISTORY = os.path.join(ARGS.data, 'history')
 fm27.LAYOUT = os.path.join(ARGS.data, 'layout.json')  # writable: calibration updates it after game patches
 if not os.path.exists(fm27.LAYOUT):
-    shutil.copyfile(os.path.join(DIR, 'layout.json'), fm27.LAYOUT)
+    shutil.copyfile(os.path.join(BASE, 'layout.json'), fm27.LAYOUT)
 lock = threading.Lock()
 state = {'cache': None, 'log': []}
 

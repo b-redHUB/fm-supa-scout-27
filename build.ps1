@@ -2,13 +2,15 @@
 # Needs: Python 3.10+ with numpy + pyinstaller, Node 18+.   Run:  .\build.ps1
 $ErrorActionPreference = 'Stop'
 Set-Location $PSScriptRoot
-$ui = 'index.html', 'app.css', 'app.js', 'scout.js', 'discover.js', 'layout.json'
-$data = $ui | ForEach-Object { '--add-data'; "$PSScriptRoot\$_;." }
+$srv = "$PSScriptRoot\server"
 
+# 1. scan server -> build/server/fm-supa-scout-server/ (exe + runtime, web UI in ui/)
 python -m PyInstaller --noconfirm --clean --onedir --name fm-supa-scout-server `
-  --distpath build/server --workpath build/pyi --specpath build @data server.py
+  --distpath build/server --workpath build/pyi --specpath build `
+  --paths $srv --add-data "$srv\ui;ui" --add-data "$srv\layout.json;." "$srv\server.py"
 if ($LASTEXITCODE) { throw 'PyInstaller failed' }
 
+# 2. Electron shell around it -> build/app/FM-Supa-Scout-<version>.exe
 Push-Location electron
 try {
   npm install --no-audit --no-fund
